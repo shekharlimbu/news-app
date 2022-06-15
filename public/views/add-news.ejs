@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href='/css/myStyle.css' />
+    <title>Edureka News App</title>
+</head>
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-brand">
+            <img src="./images/logo.png" alt="news-logo" style="width:50px;height:auto;">
+        </div>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home </span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sports">Sports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/profile">My Profile <span class="sr-only">(current)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+    
+      <br/><br/><br/>
+    <div class='container'>
+    
+        <% if (msgClass > 0) { %>
+            <p class="okay"><%=msg%></p>
+        <%} else { %>
+            <p class="danger"><%=msg%></p>
+            <% } %>
+        
+        <h3>Add new News</h3>
+        <form action="/add-news" method="post">
+            <div class='form-group'>
+              <label>Title</label>
+              <input type='text' class="form-control" value="" name="title" id="title"/>
+            </div>
+            <div class='form-group'>
+              <label>Description</label>
+              <input type='text' class="form-control" value="" name="description" id="description"/>
+            </div>
+            <div class='form-group'>
+              <label>URL</label>
+              <input type='text' class="form-control" value="" name="url" id="url"/>
+            </div>
+            <div class='form-group'>
+              <label>URL to Image</label>
+              <input type='text' class="form-control" value="" name="urlToImage" id="urlToImage"/>
+            </div>
+            <div class='form-group'>
+              <label>Published At</label>
+              <input type='text' class="form-control" value="" name="publishedAt" id="publishedAt"/>
+            </div>
+            <button type="submit">Add News</button>
+        </form>
+        <br>
+    
+        <h3>Current News</h3>
+        <table class="table table-striped">
+          <theadclass>
+            <tr>
+              <!-- <td><b>Object ID</b></td> -->
+              <th scope="col"><b>Title</b></th>
+              <th scope="col"><b>Description</b></th>
+              <th scope="col"><b>URL</b></th>
+              <th scope="col"><b>URL to Image</b></th>
+              <th scope="col"><b>Published At</b></th>
+              <th scope="col"><b>Date</b></th>
+              <th scope="col"><b>Actions</b></th>
+          </tr>
+          </theadclass>
+            
+            <% for(var i=0; i < data.length; i++) { %>
+               <tr>
+                <!-- <td><%= data[i].id %></td>  -->
+                <td><%= data[i].title %></td>
+                <td><%= data[i].description %></td>
+                <td><%= data[i].url %></td>
+                <td><%= data[i].urlToImage %></td>
+                <td><%= data[i].publishedAt %></td>
+                <td><%= data[i]._time %></td>
+                <td>
+                  
+                  <a type="button" class="btn btn-primary" href='/edit-news/<%= data[i].id %>'>Edit</a>
+                <hr/>
+                  <a type="button" class="btn btn-primary" href='/delete-news/<%= data[i].id %>'>Delete</a>
+              
+                </td>
+               </tr>
+            <% } %>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="https://www.edureka.co/"> edureka.co</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

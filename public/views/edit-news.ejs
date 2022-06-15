@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href='/css/myStyle.css' />
+    <title>Edureka News App</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-brand">
+            <img src="../images/logo.png" alt="news-logo" style="width:50px;height:auto;">
+        </div>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home </span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sports">Sports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/profile">My Profile <span class="sr-only">(current)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+      
+    <div class='container'>
+      <br/>
+      <h3>Edit News</h3>
+        <form action="/edit-news" method="post">
+            <p>
+
+              <label for="id">ID:</label>
+              <input type="text" id="id" name="id" value="<%= data[0].id %>" readonly><br><br>
+
+              <label>Title</label>
+              <input value="<%= data[0].title %>" name="title" id="title" placeholder="<%= data[0].title %>"/>
+              <br/><br/>
+      
+              <label>Description</label>
+              <input value="<%= data[0].description %>" name="description" id="description" placeholder="<%= data[0].description %>"/>
+              <br/><br/>
+  
+              <label>URL</label>
+              <input value="<%= data[0].url %>" name="url" id="url" placeholder="<%= data[0].url %>"/>
+              <br/><br/>
+  
+              <label>URL to Image</label>
+              <input value="<%= data[0].urlToImage %>" name="urlToImage" id="urlToImage" placeholder="<%= data[0].urlToImage %>"/>
+              <br/><br/>
+  
+              <label>Published At</label>
+              <input value="<%= data[0].publishedAt %>" name="publishedAt" id="publishedAt" placeholder="<%= data[0].publishedAt %>"/>
+              <br/><br/>
+    
+                <button type="submit">Edit News</button>
+            </p>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="https://www.edureka.co/"> edureka.co</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</body>
+</html>

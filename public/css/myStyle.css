@@ -1,0 +1,77 @@
+.chat-messages{
+    padding: 5px;
+    height: 200px;
+    width: 50%;
+    border-style: solid;
+    overflow-y: scroll;
+    background: blueviolet;
+}
+
+.message{
+    color: wheat;
+    font-family: cursive;
+    font-size: 15px;
+    padding: 1px;
+}
+
+.card-more{
+    width: 211px;
+    border-radius: 5%;
+    background: #051258b0;
+    color: #fff;
+    margin-left:3%;
+  }
+
+.card:hover { transform: scale(1.1); }
+
+.card-img-top{
+    width:44%
+}
+
+.card-body-more{
+    line-height: 50%;
+}
+
+/* table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+th, td {
+padding: 20px;
+} */
+
+.myButton {
+  display: block;
+  width: 117px;
+  height: 50%;
+  background: #57615a;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+.okay{
+  color: green;
+}
+
+.danger{
+  color: red;
+}
+
+.myNav li{
+  display: inline-block;
+}
+
+.chat-box{
+  padding-left: 25px;;
+}
+
+#map
+{
+    height:475px;
+}

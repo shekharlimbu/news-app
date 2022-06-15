@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href='/css/myStyle.css' />
+    <script src='https://maps.googleapis.com/maps/api/js?key='></script>
+    <title>Edureka News App</title>
+</head>
+<body>
+    
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-brand">
+            <img src="./images/logo.png" alt="news-logo" style="width:50px;height:auto;">
+        </div>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sports">Sports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">About Us<span class="sr-only">(current)</span></a>
+              </li>
+              <% if (isLoggedIn == false) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+              <%}%>
+              <% if (isLoggedIn == true) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/profile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>
+              <%}%>
+          </ul>
+        </div>
+      </nav>
+
+      <br/><br/><br/><br/>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-6" id='main-map'>
+          <h1 style="text-shadow:1px 1px 5px purple;">Edureka - Locate us here..!!</h1>
+          <br/>
+          <div id='map'></div>
+          <hr/>
+        </div>
+        <div class="col-6">
+          <div class="jumbotron">
+            <h1 class="display-4">Your one stop - for news, weather & discussions!</h1>
+            <p class="lead">Here at Edureka News App, you can check out latest news, weather forecasts and even join community discussions with other users online.</p>
+            <hr class="my-4">
+            <p>So what are you waiting for? Let's roll..</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="/login" role="button">Send suggestions!</a>
+            </p>
+        </div>
+        </div>
+      </div>
+    </div>  
+    
+
+  <script>
+    //console.log(google);
+    //console.log(google.maps);
+
+    window.onload = function(){
+
+        var location = new google.maps.LatLng(12.9810782,77.6943075);
+        // 22.5692969,88.5098809 Home
+        // 12.9810782,77.6921623 Edureka
+        // 12.9810782,77.6943075 Edureka marker proper
+
+        var map = new google.maps.Map(document.getElementById('map'),
+        {
+            center:location,
+            zoom:17
+        });
+
+        var marker = new google.maps.Marker({
+            position:location,
+            map:map,
+            title:'Edureka Office'
+        });
+
+        //map.setMarker(marker);
+    };
+  </script>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+      <a href="https://www.edureka.co/"> edureka.co</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
